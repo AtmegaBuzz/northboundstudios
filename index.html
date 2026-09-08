@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Northbound — AI &amp; Automation for Travel and Tourism</title>
-<meta name="description" content="We audit travel and tourism operations, find where AI and automation save cost or unlock growth, then build the software to do it."/>
+<title>Northbound — We build the systems that grow your business</title>
+<meta name="description" content="We audit how your business actually runs, find what's costing you customers, then build the fix. Get found, build systems, automate operations."/>
 <meta name="theme-color" content="#f9f9f8"/>
 
 <!--
@@ -12,19 +12,25 @@
   NORTHBOUND — LANDING PAGE
   Tailwind (play CDN) + Material-style token scale in the tailwind.config below.
 
-  CONTENT STATUS — read before showing this to anyone:
-  Blocks marked DUMMY hold invented content (the testimonial and its author,
-  the office cities, the outcome percentages). Replace or delete them before
-  this goes live; they are placeholders, not claims Northbound can make.
+  BEFORE THIS GOES LIVE — search this file for "TODO". Each one is a real gap,
+  not a nice-to-have:
+    1. Booking URL      — the CTA button href (section 9)
+    2. Section 6 copy   — the project placeholder is deliberately visible
+    3. Team portraits   — three 4:5 photos into assets/ (shoot rules inline)
+    4. Contact email    — footer
+    5. Social links     — footer
+  Nothing on this page is an invented claim. Keep it that way: every number
+  here is one Northbound can stand behind today.
 
   LAYOUT:
     index.html          this page
     concept.md          positioning brief the copy is drawn from
-    assets/             hero.mp4 (1280x720), hero-mobile.mp4 (960x540), hero.webp
+    assets/             hero.mp4, hero-mobile.mp4, hero.webp — NO LONGER USED.
+                        The hero is a still now; these are safe to delete.
 
-  IMAGES: sections 3, 5 and 6 still point at lh3.googleusercontent.com URLs,
-  which are generator-hosted and can rot. Drop real files in assets/ and swap
-  the src / background-image values. The hero already runs on local assets.
+  IMAGES: hero and section 6 use Unsplash by photo id. Note that
+  source.unsplash.com is retired (503) — only direct images.unsplash.com
+  /photo-<id> URLs work. Team portraits must be real people, never stock.
   ============================================================================
 -->
 
@@ -32,647 +38,336 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}html{scroll-behavior:smooth;}section[id]{scroll-margin-top:96px;}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-/* Hero plate. Pull the video back a touch so it reads as ground, not subject. */
-.hero-video{filter:saturate(.92) brightness(.95);}
-/* Scrim over the video. Two layers: a flat tint that lowers overall contrast,
+/* Hero plate. Pull the still back a touch so it reads as ground, not subject. */
+.hero-still{filter:saturate(.92) brightness(.95);}
+/* Scrim over the still. Two layers: a flat tint that lowers overall contrast,
    plus a gradient weighted to the bottom where the headline and CTA sit and
-   kept lighter mid-frame. Raise the flat alpha to push the video back further. */
+   kept lighter mid-frame. Raise the flat alpha to push the image back further. */
 .hero-scrim{background:linear-gradient(to top,rgba(10,10,10,.75) 0%,rgba(10,10,10,.15) 50%,rgba(10,10,10,.45) 100%),rgba(10,10,10,.38);}
-/* Bottom of the hero: the footage dissolves into flat #0a0a0a over the last
-   stretch, so the curve cuts against solid colour rather than moving video. */
+/* Bottom of the hero: the image dissolves into flat #0a0a0a over the last
+   stretch, so the curve cuts against solid colour rather than photography. */
 .hero-fade{position:absolute;left:0;right:0;bottom:0;height:clamp(150px,22vh,280px);pointer-events:none;background:linear-gradient(to bottom,rgba(10,10,10,0) 0%,rgba(10,10,10,.6) 48%,#0a0a0a 86%);}
 /* The arc itself. Filled with the strip colour below it, so it reads as the
    light section pushing up into the dark. bottom:-1px kills the sub-pixel seam. */
 .hero-curve{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(40px,4.6vw,78px);display:block;}
 /* Keeps the headline and CTA clear of the arc at every width. */
 .hero-content{padding-bottom:clamp(64px,9vw,124px);}
-@media (prefers-reduced-motion: reduce){.hero-video{filter:none}}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-dim":"#d9dad9","tertiary-fixed":"#d1e8da","on-primary-container":"#898888","inverse-primary":"#c8c6c5","error":"#ba1a1a","primary-fixed-dim":"#c8c6c5","on-primary-fixed":"#1b1c1c","outline":"#747878","on-secondary":"#ffffff","tertiary-fixed-dim":"#b5ccbf","on-tertiary-fixed-variant":"#374b41","on-tertiary-fixed":"#0b1f17","on-secondary-fixed":"#0e1f0f","on-surface-variant":"#444748","tertiary-container":"#11251c","surface-variant":"#e2e3e1","inverse-surface":"#2e3130","on-error":"#ffffff","secondary-fixed":"#d2e9ce","on-secondary-container":"#566954","on-tertiary":"#ffffff","secondary":"#50634e","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-primary-fixed-variant":"#474746","inverse-on-surface":"#f0f1ef","background":"#f9f9f8","primary-container":"#212121","on-background":"#1a1c1b","primary":"#0a0a0a","secondary-container":"#d2e9ce","on-secondary-fixed-variant":"#394b38","surface-container":"#edeeed","surface-container-highest":"#e2e3e1","tertiary":"#000d07","on-surface":"#1a1c1b","primary-fixed":"#e5e2e1","surface-tint":"#5f5e5e","outline-variant":"#c4c7c7","on-tertiary-container":"#788d82","on-error-container":"#93000a","surface-bright":"#f9f9f8","surface-container-low":"#f3f4f2","secondary-fixed-dim":"#b7cdb2","surface-container-high":"#e7e8e7","error-container":"#ffdad6","surface":"#f9f9f8"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-2xs":"0.25rem","space-lg":"1.5rem","space-xl":"2rem","space-2xl":"3rem","space-3xl":"4.5rem","space-4xl":"6rem","space-5xl":"9rem","space-xs":"0.5rem","space-md":"1rem","space-sm":"0.75rem","gutter-mobile":"1rem","gutter-tablet":"1.5rem","gutter-desktop":"2.5rem"},"fontFamily":{"body-lg":["Hanken Grotesk"],"display-xl":["Space Grotesk"],"title-md":["Hanken Grotesk"],"title-lg":["Hanken Grotesk"],"body-sm":["Hanken Grotesk"],"headline-lg":["Space Grotesk"],"label-sm":["JetBrains Mono"],"display-xl-mobile":["Space Grotesk"],"headline-sm":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"label-md":["JetBrains Mono"],"body-md":["Hanken Grotesk"],"headline-md":["Space Grotesk"]},"fontSize":{"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-xl":["72px",{"lineHeight":"80px","letterSpacing":"-0.03em","fontWeight":"600"}],"title-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"500"}],"title-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"400"}],"display-xl-mobile":["40px",{"lineHeight":"46px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"500"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"500"}]}}}};</script>
 </head>
 <body class="bg-surface font-body-md text-on-surface antialiased">
 
-<header class="absolute top-0 inset-x-0 z-50 px-4 sm:px-6 pt-4"><div class="max-w-5xl mx-auto rounded-full bg-surface-container-lowest/10 backdrop-blur-md border border-surface-container-lowest/20 shadow-lg px-6 py-3 flex items-center justify-between text-surface"><nav class="flex items-center gap-6"><a class="font-label-md text-label-md text-surface/90 hover:text-surface transition-colors" data-path="services" href="#services">Services</a><a class="font-label-md text-label-md text-surface/70 hover:text-surface transition-colors" data-path="audit-process" href="#audit-section">Audit</a><a class="font-label-md text-label-md text-surface/70 hover:text-surface transition-colors" data-path="solutions" href="#solutions">Solutions</a></nav><div class="flex items-center gap-2"><span class="font-headline-sm text-title-lg tracking-tight text-surface font-medium">Northbound</span></div><div class="flex items-center gap-3"><button aria-label="Search" class="w-8 h-8 rounded-full bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 flex items-center justify-center text-surface transition-colors"><span class="material-symbols-outlined text-sm">search</span></button><a class="px-4 py-1.5 rounded-full bg-surface-container-lowest text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-lowest/90 transition-colors shadow-sm" data-path="book-an-audit" href="#audit-lead-form">Book an Audit</a></div></div></header>
+<header class="absolute top-0 inset-x-0 z-50 px-4 sm:px-6 pt-4">
+<div class="max-w-5xl mx-auto rounded-full bg-surface-container-lowest/10 backdrop-blur-md border border-surface-container-lowest/20 shadow-lg px-5 sm:px-6 py-3 flex items-center justify-between gap-4 text-surface">
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-surface/70 hover:text-surface transition-colors" href="#what-we-do">What we do</a>
+<a class="font-label-md text-label-md text-surface/70 hover:text-surface transition-colors" href="#how-we-work">How we work</a>
+<a class="font-label-md text-label-md text-surface/70 hover:text-surface transition-colors" href="#team">Team</a>
+</nav>
+<span class="font-headline-sm text-title-lg tracking-tight text-surface font-medium">Northbound</span>
+<a class="px-4 py-1.5 rounded-full bg-surface-container-lowest text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-lowest/90 transition-colors shadow-sm whitespace-nowrap" href="#contact">Book a free audit</a>
+</div>
+</header>
 
 <main class="w-full bg-surface"><div class="flex flex-col w-full">
 
-<!-- HERO SECTION: Atmospheric Alpine Landscape with Glass Diagnostic Widget -->
-<section class="relative w-full overflow-hidden bg-surface-container-lowest"><div class="relative w-full min-h-[720px] lg:min-h-[800px] bg-primary flex flex-col justify-end p-6 sm:p-10 lg:p-16">
-<!-- HERO PLATE: hero-mobile.mp4 (960x540) below 768px, hero.mp4 (1280x720) above.
-     hero.webp is the poster and the standing fallback whenever the video is skipped:
-     no JS, reduced-motion, or a metered/slow connection. The source is picked in the
-     script below rather than by <source media>, which browsers honour inconsistently. -->
-<video aria-hidden="true" class="hero-video absolute inset-0 w-full h-full object-cover" id="hero-video" loop="" muted="" playsinline="" poster="assets/hero.webp" preload="none"></video>
-<!-- Scrim; tune the alphas in .hero-scrim (in the <style> block) to taste. -->
+<!-- ========== 1. HERO ========== -->
+<section class="relative w-full overflow-hidden bg-surface-container-lowest">
+<div class="relative w-full min-h-[720px] lg:min-h-[800px] bg-primary flex flex-col justify-end p-6 sm:p-10 lg:p-16">
+<img alt="Five people working together around a long wooden table, each on a laptop, in a daylit room" class="hero-still absolute inset-0 w-full h-full object-cover" fetchpriority="high" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&amp;q=80&amp;auto=format&amp;fit=crop"/>
 <div class="hero-scrim absolute inset-0 pointer-events-none"></div>
 <div class="hero-fade" aria-hidden="true"></div>
-<svg aria-hidden="true" class="hero-curve" preserveAspectRatio="none" viewBox="0 0 1440 80"><path d="M0 26C360 60 900 70 1440 54V80H0Z" fill="#f3f4f2"/></svg><div class="hero-content relative z-10 max-w-7xl mx-auto w-full flex flex-col items-start"><div class="max-w-2xl space-y-4 mb-6"><h1 class="font-display-xl text-display-xl-mobile sm:text-headline-lg lg:text-display-xl text-surface font-semibold tracking-tight text-balance">Where intelligent systems meet the wilderness.</h1></div><div class="backdrop-blur-md bg-surface-container-lowest/15 rounded-2xl md:rounded-full p-2.5 flex flex-wrap md:flex-nowrap items-center gap-3 shadow-2xl max-w-xl"><a class="bg-surface-container-lowest text-primary hover:bg-surface-container-lowest/90 px-5 py-2.5 rounded-full font-label-md text-label-md font-semibold transition-all flex items-center gap-2 shadow-sm" href="#audit-section"><span class="">Book Scoped Audit</span><span class="material-symbols-outlined text-sm">arrow_forward</span></a><a class="hover:bg-surface-container-lowest/20 text-surface px-4 py-2.5 rounded-full font-label-md text-label-md font-medium transition-all flex items-center gap-1.5" href="#audit-section"><span class="material-symbols-outlined text-sm">tune</span><span class="">Diagnostic Preview</span></a></div></div></div><div class="w-full bg-surface-container-low py-4 px-6 lg:px-12 shadow-sm"><div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6"><div class="flex items-center gap-3"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Benchmark Matrix</span><span class="h-4 w-px bg-surface-dim"></span><span class="font-body-sm text-body-sm text-on-surface-variant">4+ Years Engineering High-Consequence Tourism Stacks</span></div><div class="flex items-center gap-8"><div class="flex items-center gap-2"><span class="font-label-md text-label-md font-semibold text-on-surface">17.4%</span><span class="font-label-sm text-label-sm text-on-surface-variant">Avg Sector Direct Growth</span></div><div class="flex items-center gap-2"><span class="font-label-md text-label-md font-semibold text-on-surface">100%</span><span class="font-label-sm text-label-sm text-on-surface-variant">Tailored Architecture</span></div><div class="flex items-center gap-2"><span class="font-label-md text-label-md font-semibold text-on-surface">0</span><span class="font-label-sm text-label-sm text-on-surface-variant">SaaS Template Bloat</span></div></div></div></div></section>
+<svg aria-hidden="true" class="hero-curve" preserveAspectRatio="none" viewBox="0 0 1440 80"><path d="M0 26C360 60 900 70 1440 54V80H0Z" fill="#f3f4f2"/></svg>
+<div class="hero-content relative z-10 max-w-7xl mx-auto w-full">
+<div class="max-w-3xl space-y-6">
+<h1 class="font-display-xl text-display-xl-mobile sm:text-headline-lg lg:text-display-xl text-surface font-semibold tracking-tight text-balance">We build the systems that grow your business.</h1>
+<p class="font-body-lg text-body-lg text-surface/75 max-w-xl">We audit how your business actually runs, find what's costing you customers, then build the fix.</p>
+<div class="pt-2">
+<a class="inline-flex items-center gap-2 bg-surface-container-lowest text-primary hover:bg-surface-container-lowest/90 px-6 py-3 rounded-full font-label-md text-label-md font-semibold transition-colors shadow-lg" href="#contact">
+<span>Book a free audit</span><span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
 
-<!-- SECTION 2: 3-COLUMN VISUAL HIGHLIGHTS BAR -->
-<section class="w-full py-12 px-6 lg:px-12 bg-surface border-b border-surface-container">
-<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-<!-- Highlight 1 -->
-<div class="flex flex-col items-start space-y-3.5">
-<div class="w-12 h-12 rounded-full bg-[#bbf7d0] text-[#14532d] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-2xl">trending_up</span>
+<!-- ========== 2. CREDIBILITY STRIP ========== -->
+<div class="w-full bg-surface-container-low py-5 px-6 lg:px-12">
+<div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
+<div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold whitespace-nowrap">4+ years</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Shipping production systems</span>
 </div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold tracking-tight">Growth Through Automation</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-        Recapture 15–22% lost OTA margins with direct booking intelligence and sovereign checkout workflows.
-      </p>
+<div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold whitespace-nowrap">Web · Mobile · AI</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Built end to end</span>
 </div>
-<!-- Highlight 2 -->
-<div class="flex flex-col items-start space-y-3.5">
-<div class="w-12 h-12 rounded-full bg-[#bbf7d0] text-[#14532d] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-2xl">hub</span>
+<div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold whitespace-nowrap">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Code and IP you own</span>
 </div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold tracking-tight">Insight-Powered Yield</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-        Dynamic pricing algorithms calibrated for real-time weather openings and high-season peak capacity.
-      </p>
-</div>
-<!-- Highlight 3 -->
-<div class="flex flex-col items-start space-y-3.5">
-<div class="w-12 h-12 rounded-full bg-[#bbf7d0] text-[#14532d] flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-2xl">verified</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold tracking-tight">Field-Tested Reliability</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-        Zero-dropout offline syncing and failover dispatch pipelines for expedition guides and remote operators.
-      </p>
 </div>
 </div>
 </section>
 
-<!-- SECTION 3: UNIQUE DIGITAL EXPERIENCES THAT ELEVATE YOUR OPERATOR BRAND -->
-<section class="w-full py-space-4xl px-6 lg:px-12 bg-surface-container-lowest" id="services">
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-<!-- Left Column: Narrative, Inset Visual Card, and Split Metric Counters -->
-<div class="lg:col-span-6 space-y-8">
-<div class="space-y-4">
-<span class="inline-block px-3.5 py-1 rounded-full border border-surface-variant bg-surface-container-low font-label-sm text-label-sm text-on-surface uppercase font-medium tracking-wider">
-          Operator Transformation
-        </span>
-<h2 class="font-headline-lg text-headline-md sm:text-headline-lg text-on-surface font-semibold tracking-tight text-balance leading-tight">
-          Unique Digital Experiences That Elevate Your Operator Brand
-        </h2>
+<!-- ========== 3. THE PROBLEM — dark plate, breaks up the light sections ========== -->
+<section class="w-full py-20 lg:py-space-5xl px-6 lg:px-12 bg-primary" id="problem">
+<div class="max-w-7xl mx-auto space-y-space-2xl">
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-surface tracking-tight max-w-xl text-balance">Where businesses lose customers.</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+<div class="space-y-3 pt-6 border-t border-surface/20">
+<span class="font-display-xl text-display-xl-mobile lg:text-display-xl text-surface/40 font-semibold leading-none block">01</span>
+<h3 class="font-headline-sm text-headline-sm text-surface font-semibold">Invisible</h3>
+<p class="font-body-md text-body-md text-surface/65">Customers can't find you in search or in AI answers.</p>
 </div>
-<!-- Inset Visual Card with Team/Dashboard Preview -->
-<div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-low border border-surface-container shadow-sm">
-<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0 bg-surface-dim">
-<img alt="Expedition guides reviewing route plans and software dispatch maps on screen in a basecamp alpine setting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXcopq5wQKNqrLBJCSQDrxiCviJITpP6Yhq6TpqlAH7I_h11hQFLNB4eyLRtzmRhF5rR5aGuoxjGo6n3ZtvHI-LRHk6tzoq_FWk_ckBuxSOSk0g7mAj2hBhADAru3QjEyg2MI0YNFgtO2aVMr-2f9tb-q29t6-MYmPMXBitPTMmNvwP-6pNPfUg_dO6ycsuot5f64p83l8YsP60meTs_X9Tb6Amf4orgDFC4fF3sR0cML9BfKH4OdX"/>
+<div class="space-y-3 pt-6 border-t border-surface/20">
+<span class="font-display-xl text-display-xl-mobile lg:text-display-xl text-surface/40 font-semibold leading-none block">02</span>
+<h3 class="font-headline-sm text-headline-sm text-surface font-semibold">Manual</h3>
+<p class="font-body-md text-body-md text-surface/65">Your team runs on spreadsheets, WhatsApp threads and copy-paste.</p>
 </div>
-<div class="space-y-1.5 py-1">
-<h4 class="font-title-md text-title-md text-on-surface font-semibold">Engineered for Quantifiable Operator Growth</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-            We design intelligent platforms and automated dispatch pipelines that capture high-margin travelers directly while eliminating manual office overhead.
-          </p>
+<div class="space-y-3 pt-6 border-t border-surface/20">
+<span class="font-display-xl text-display-xl-mobile lg:text-display-xl text-surface/40 font-semibold leading-none block">03</span>
+<h3 class="font-headline-sm text-headline-sm text-surface font-semibold">Leaking</h3>
+<p class="font-body-md text-body-md text-surface/65">Leads arrive and go cold before anyone follows up.</p>
 </div>
 </div>
-<!-- Split Metric Counters -->
-<div class="grid grid-cols-2 gap-8 pt-2">
-<div class="space-y-2">
-<div class="flex items-baseline gap-1">
-<span class="font-headline-lg text-headline-lg font-bold text-on-surface">4+</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Years of experience</span>
 </div>
-<div class="h-1 w-20 rounded-full bg-[#86efac]"></div>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">Building web platforms, mobile apps and AI systems end to end.</p>
+</section>
+
+<!-- ========== 4. WHAT WE DO — THREE PILLARS ========== -->
+<section class="w-full py-20 lg:py-space-5xl px-6 lg:px-12 bg-surface" id="what-we-do">
+<div class="max-w-7xl mx-auto space-y-space-2xl">
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface tracking-tight">What we do</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+<div class="p-7 lg:p-8 rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm space-y-5">
+<div class="flex items-center justify-between">
+<span class="w-12 h-12 rounded-full bg-[#bbf7d0] text-[#14532d] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-2xl">travel_explore</span></span>
+<span class="font-label-md text-label-md text-outline">01</span>
 </div>
 <div class="space-y-2">
-<div class="flex items-baseline gap-1">
-<span class="font-headline-lg text-headline-lg font-bold text-on-surface">100%</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Client IP ownership</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Get Found</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Be findable where your customers actually look.</p>
 </div>
-<div class="h-1 w-20 rounded-full bg-[#86efac]"></div>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">Zero SaaS lock-in or recurring transactional commission tolls.</p>
+<ul class="space-y-2.5 pt-4 border-t border-surface-container">
+<li class="font-body-sm text-body-sm text-on-surface-variant">SEO &amp; AEO</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Local search &amp; Google Business Profile</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Paid ads (Google, Meta)</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Content &amp; social</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Reviews &amp; reputation</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Analytics &amp; tracking</li>
+</ul>
 </div>
+<div class="p-7 lg:p-8 rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm space-y-5">
+<div class="flex items-center justify-between">
+<span class="w-12 h-12 rounded-full bg-[#bbf7d0] text-[#14532d] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-2xl">deployed_code</span></span>
+<span class="font-label-md text-label-md text-outline">02</span>
 </div>
+<div class="space-y-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Build Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The software your business actually runs on.</p>
 </div>
-<!-- Right Column: Tall Rounded Image Card -->
-<div class="lg:col-span-6">
-<div class="relative rounded-3xl overflow-hidden shadow-2xl border border-surface-container-high aspect-[4/5] sm:aspect-[5/6] max-w-lg mx-auto lg:max-w-none">
-<img alt="Expedition strategy and operations team planning wilderness routes in a bright modern alpine studio" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2WqfsaKpIcpkxsCOSCQZBZ2Ay_5YQdJ652qgD5KkX6I_M5BGRrm106_u0iT6Mi03zU0zKS1YWjpVxBow5fXP2bAfSRYcGVOM09wU2UlBoLoW1DuzRVSuXxE0rT6vmQ1v9E8ftEd-Qm-C3WDeVotCIiI0zRHoZrDcQs0ZZvPwtPFBdIxUHtItZIULT9LiqIkmsmPw4v2UQmlfsKNjOc09Wus16gW_4JPeeHZEhjMBcK9qpJr-2gtAa"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
-<div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-surface-container-lowest/80 backdrop-blur-md border border-surface-container-lowest/40 text-on-surface flex items-center justify-between">
-<div>
-<div class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Autonomous Field Deployments</div>
-<div class="font-title-md text-title-md font-semibold">Arctic &amp; Mountain Dispatch Engine</div>
+<ul class="space-y-2.5 pt-4 border-t border-surface-container">
+<li class="font-body-sm text-body-sm text-on-surface-variant">Websites &amp; landing pages</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Mobile apps</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Booking &amp; e-commerce</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Internal tools &amp; dashboards</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">API integrations</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">White-label builds</li>
+</ul>
 </div>
-<span class="w-9 h-9 rounded-full bg-primary text-surface flex items-center justify-center">
-<span class="material-symbols-outlined text-sm">north_east</span>
-</span>
+<div class="p-7 lg:p-8 rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm space-y-5">
+<div class="flex items-center justify-between">
+<span class="w-12 h-12 rounded-full bg-[#bbf7d0] text-[#14532d] flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-2xl">bolt</span></span>
+<span class="font-label-md text-label-md text-outline">03</span>
 </div>
+<div class="space-y-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Automate Operations</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Stop doing by hand what a system can do.</p>
+</div>
+<ul class="space-y-2.5 pt-4 border-t border-surface-container">
+<li class="font-body-sm text-body-sm text-on-surface-variant">Workflow automation</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Lead capture &amp; follow-up (WhatsApp, email)</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">CRM setup &amp; automation</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">AI assistants &amp; chatbots</li>
+<li class="font-body-sm text-body-sm text-on-surface-variant">Quotes, invoices &amp; documents</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
 
-<!-- SECTION 4: VULNERABILITIES TO GROWTH (Visual Comparison & Mini Widgets) -->
-<section class="w-full py-space-4xl px-6 lg:px-12 bg-surface">
+<!-- ========== 5. HOW WE WORK ========== -->
+<section class="w-full py-20 lg:py-space-5xl px-6 lg:px-12 bg-surface-container-low" id="how-we-work">
 <div class="max-w-7xl mx-auto space-y-space-2xl">
-<!-- Section Header -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-<div class="space-y-3 max-w-2xl">
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold tracking-wider">01 / Growth Diagnostic</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-          Where travel operators lose margins to legacy habits.
-        </h2>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface tracking-tight">How we work</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+<div class="space-y-3 pt-5 border-t-2 border-on-surface relative">
+<span class="material-symbols-outlined absolute -top-3 right-0 text-outline text-lg hidden lg:block">arrow_forward</span>
+<span class="font-display-xl text-headline-md lg:text-headline-lg text-on-surface font-semibold leading-none block">01</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Audit</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We map how your business actually runs and where it leaks.</p>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-        Fragile administrative debt and aggressive third-party aggregator commissions quietly siphon off up to 25% of annual net yield.
-      </p>
+<div class="space-y-3 pt-5 border-t-2 border-outline-variant relative">
+<span class="material-symbols-outlined absolute -top-3 right-0 text-outline text-lg hidden lg:block">arrow_forward</span>
+<span class="font-display-xl text-headline-md lg:text-headline-lg text-on-surface font-semibold leading-none block">02</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Plan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">You get a prioritized list of fixes with expected impact.</p>
 </div>
-<!-- Visual Comparison Cards Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- Card 1: OTA Drag vs Direct Retained -->
-<div class="p-7 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all border border-surface-container shadow-sm flex flex-col justify-between space-y-6">
-<div class="flex items-center justify-between">
-<span class="font-label-md text-label-md text-outline">LEAK_01</span>
-<span class="px-2.5 py-1 rounded bg-error-container/60 text-error font-label-sm text-label-sm font-semibold uppercase">15–22% Margin Loss</span>
+<div class="space-y-3 pt-5 border-t-2 border-outline-variant relative">
+<span class="material-symbols-outlined absolute -top-3 right-0 text-outline text-lg hidden lg:block">arrow_forward</span>
+<span class="font-display-xl text-headline-md lg:text-headline-lg text-on-surface font-semibold leading-none block">03</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Build</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We implement, scoped from the audit.</p>
 </div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">OTA Trap vs. Retained Direct Margin</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Over-reliance on Viator &amp; GetYourGuide forfeits margin. Engineered direct booking channels secure full transaction yield.</p>
-</div>
-<!-- DUMMY: illustrative gauge values — replace with audited figures -->
-<div class="bg-surface-container-lowest p-4 rounded-xl space-y-3 border border-surface-container">
-<div class="flex justify-between items-center text-label-sm font-label-sm">
-<span class="text-error flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-error"></span>OTA Commission Toll</span>
-<span class="font-semibold text-error">-20.0%</span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-variant overflow-hidden">
-<div class="h-full bg-error rounded-full" style="width: 32%;"></div>
-</div>
-<div class="flex justify-between items-center text-label-sm font-label-sm pt-1">
-<span class="text-[#16a34a] flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#16a34a]"></span>Direct Sovereign Ingestion</span>
-<span class="font-semibold text-[#16a34a]">+22.4% Margin</span>
-</div>
-<div class="w-full h-2 rounded-full bg-surface-variant overflow-hidden">
-<div class="h-full bg-[#16a34a] rounded-full" style="width: 88%;"></div>
-</div>
-</div>
-</div>
-<!-- Card 2: WhatsApp Chaos vs Automated Pipeline -->
-<div class="p-7 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all border border-surface-container shadow-sm flex flex-col justify-between space-y-6">
-<div class="flex items-center justify-between">
-<span class="font-label-md text-label-md text-outline">LEAK_02</span>
-<span class="px-2.5 py-1 rounded bg-surface-dim text-on-surface-variant font-label-sm text-label-sm font-semibold uppercase">14+ Hrs Lost Weekly</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">Manual Dispatch vs. Webhook Synchronization</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Eliminate fragmented 05:00 AM group chats with autonomous permit triggers and instant SMS roster confirmations.</p>
-</div>
-<!-- Visual Flow Diagram -->
-<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between gap-2 border border-surface-container">
-<div class="px-3 py-2 rounded-lg bg-surface-container text-center flex-1">
-<span class="font-label-sm text-[10px] text-outline block uppercase">Old Way</span>
-<span class="font-body-md text-xs text-on-surface font-medium">WhatsApp Groups</span>
-</div>
-<span class="material-symbols-outlined text-outline text-sm">arrow_forward</span>
-<div class="px-3 py-2 rounded-lg bg-secondary-container/50 text-center flex-1 border border-secondary/20">
-<span class="font-label-sm text-[10px] text-secondary font-semibold block uppercase">Northbound Sync</span>
-<span class="font-body-md text-xs text-on-surface font-semibold">Live Guide Roster API</span>
-</div>
-</div>
-</div>
-<!-- Card 3: Static Pricing vs Dynamic Yield -->
-<div class="p-7 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all border border-surface-container shadow-sm flex flex-col justify-between space-y-6">
-<div class="flex items-center justify-between">
-<span class="font-label-md text-label-md text-outline">LEAK_03</span>
-<span class="px-2.5 py-1 rounded bg-secondary-container text-secondary font-label-sm text-label-sm font-semibold uppercase">18–25% Rev Uncaptured</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">Flat Rate vs. Dynamic Capacity Pricing</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Uniform seat pricing during peak weather windows surrenders pure profit. Algorithmic curves lift yield automatically.</p>
-</div>
-<!-- DUMMY: illustrative surge figure -->
-<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between border border-surface-container">
-<div>
-<span class="font-label-sm text-label-sm text-outline uppercase block">High-Season Surge</span>
-<span class="font-headline-sm text-headline-sm font-bold text-on-surface">+18.4%</span>
-</div>
-<div class="flex items-end gap-1.5 h-10">
-<div class="w-3 bg-surface-variant rounded-t h-4"></div>
-<div class="w-3 bg-surface-variant rounded-t h-6"></div>
-<div class="w-3 bg-[#bbf7d0] rounded-t h-8"></div>
-<div class="w-3 bg-[#16a34a] rounded-t h-10"></div>
-</div>
-</div>
-</div>
-<!-- Card 4: Repetitive Admin vs Document Synthesis -->
-<div class="p-7 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all border border-surface-container shadow-sm flex flex-col justify-between space-y-6">
-<div class="flex items-center justify-between">
-<span class="font-label-md text-label-md text-outline">LEAK_04</span>
-<span class="px-2.5 py-1 rounded bg-surface-dim text-on-surface-variant font-label-sm text-label-sm font-semibold uppercase">High Staff Friction</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">Paper Waivers vs. 1-Click Itinerary Synthesis</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Replace manual PDF export routines and medical waiver chasing with real-time automated guest portals.</p>
-</div>
-<!-- Mini Progress Metric -->
-<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between border border-surface-container">
-<div class="flex items-center gap-3">
-<span class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-lg">description</span>
-</span>
-<div>
-<span class="font-body-sm text-body-sm font-medium text-on-surface">Auto-Generated Itineraries</span>
-<span class="font-label-sm text-label-sm text-secondary block">100% Guest Compliance</span>
-</div>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface font-semibold px-2.5 py-1 bg-surface-container rounded">Instant</span>
-</div>
+<div class="space-y-3 pt-5 border-t-2 border-outline-variant">
+<span class="font-display-xl text-headline-md lg:text-headline-lg text-on-surface font-semibold leading-none block">04</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Support</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ongoing maintenance and expansion.</p>
 </div>
 </div>
 </div>
 </section>
 
-<!-- SECTION 5: BUILT FOR MODERN ADVENTURE & ACTIVITY OPERATORS (Photo Cards) -->
-<section class="w-full py-space-4xl px-6 lg:px-12 bg-surface-container-low" id="solutions">
+<!-- ========== 6. WHAT WE'RE BUILDING NOW ========== -->
+<section class="w-full py-20 lg:py-space-5xl px-6 lg:px-12 bg-surface-container-lowest" id="work">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+<div class="lg:col-span-7">
+<img alt="A performance analytics dashboard on a laptop screen showing load-time and session charts" class="w-full aspect-[16/10] object-cover rounded-2xl shadow-lg" loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&amp;q=80&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="lg:col-span-5 space-y-5">
+<span class="inline-flex items-center gap-2 font-label-sm text-label-sm text-secondary uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>In build · case study to follow
+</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface tracking-tight">What we're building now</h2>
+<!-- TODO: replace this placeholder with the real project before launch.
+     Two sentences: what the system is, and what problem it solves for the
+     client. Keep it concrete — no adjectives doing the work of facts.
+     Then drop the bracketed placeholder styling below. -->
+<p class="font-body-md text-body-md text-on-surface-variant border-l-2 border-outline-variant pl-4">[ Placeholder — replace with the real project before launch. ]</p>
+</div>
+</div>
+</section>
+
+<!-- ========== 7. WHO WE WORK WITH ========== -->
+<section class="w-full py-20 lg:py-space-5xl px-6 lg:px-12 bg-surface" id="clients">
 <div class="max-w-7xl mx-auto space-y-space-2xl">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-<div class="space-y-2 max-w-2xl">
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold tracking-wider">02 / Tailored Architecture</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-          Purpose-built for high-consequence field operations.
-        </h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-          Engineered automation pipelines that withstand low-connectivity base camps and volatile field conditions.
-        </p>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface tracking-tight">Who we work with</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
+<img alt="Two hikers with backpacks walking a trail below a snow-capped mountain range" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&amp;q=75&amp;auto=format&amp;fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent"></div>
+<h3 class="absolute bottom-5 left-5 right-5 font-title-lg text-title-lg text-surface font-semibold">Tour &amp; activity operators</h3>
 </div>
-<div class="flex items-center gap-2">
-<span class="font-label-sm text-label-sm text-outline">TARGET_SECTOR: EXPEDITION &amp; TOUR OPERATORS</span>
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
+<img alt="Timber resort building at dusk with a pool and row of sun loungers on a deck" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&amp;q=75&amp;auto=format&amp;fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent"></div>
+<h3 class="absolute bottom-5 left-5 right-5 font-title-lg text-title-lg text-surface font-semibold">Hotels, resorts &amp; lodges</h3>
 </div>
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
+<img alt="Empty barbershop interior with three chairs, mirrors and exposed brick walls" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&amp;q=75&amp;auto=format&amp;fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent"></div>
+<h3 class="absolute bottom-5 left-5 right-5 font-title-lg text-title-lg text-surface font-semibold">Local service businesses</h3>
 </div>
-<!-- Photographic Grid Cards -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Card 1: High-Altitude Mountaineering -->
-<div class="relative group rounded-2xl overflow-hidden bg-surface-container shadow-md flex flex-col h-[400px] justify-between p-6 transition-all duration-300 hover:-translate-y-1">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Solo mountaineer hiking with heavy technical backpack along an alpine ridge trail at sunrise" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDaMKyL9ulWk4W1Q2s0bJOFuG1SgIf12N_MawgvYAdnq_Mz6b74wExqwytypom48z61LHaG8L_UmcivyiXlwZw_bWd6GR2nYXgcB11ze6yc77q1cmcAPQ4rCBxc6AT3hiwvwSBVmCR3YuJA7uO23ozlD4983wqEWSPdjeea5LUps82YJFb5onvvZbJSnMAPYyfCxLcdxsyUmOyLjk0lM76j2Pp1_tSvrD367rf2FQLEtnJqnuu017N')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
-<div class="relative z-10 flex justify-between items-center">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-sm text-label-sm text-primary font-medium">Mountaineering</span>
-<span class="w-7 h-7 rounded-full bg-surface-container-lowest/20 backdrop-blur-md flex items-center justify-center text-surface text-xs">
-<span class="material-symbols-outlined text-sm">north_east</span>
-</span>
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
+<img alt="A group class working out on mats in a bright studio with tall windows" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&amp;q=75&amp;auto=format&amp;fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent"></div>
+<h3 class="absolute bottom-5 left-5 right-5 font-title-lg text-title-lg text-surface font-semibold">Clinics &amp; studios</h3>
 </div>
-<div class="relative z-10 space-y-2">
-<h4 class="font-headline-sm text-headline-sm text-surface">High-Altitude Trekking</h4>
-<p class="font-body-sm text-body-sm text-surface/80">Offline guide rosters, automated permit compliance, and satellite SMS check-in triggers.</p>
-<div class="pt-2 font-label-sm text-label-sm text-secondary-fixed flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> Roster Sync + Permit API
-          </div>
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
+<img alt="Warehouse fulfilment floor stacked with parcels and picking shelves" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&amp;q=75&amp;auto=format&amp;fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent"></div>
+<h3 class="absolute bottom-5 left-5 right-5 font-title-lg text-title-lg text-surface font-semibold">E-commerce brands</h3>
 </div>
-</div>
-<!-- Card 2: Marine & Coastal -->
-<div class="relative group rounded-2xl overflow-hidden bg-surface-container shadow-md flex flex-col h-[400px] justify-between p-6 transition-all duration-300 hover:-translate-y-1">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Rugged offshore catamaran cutting through deep navy blue fjord waters under misty skies" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNFj7_zjKIhco4JHFHWW6eFCiJXYSqSDna5_QD6eTQkl1yO-Oj8_V1DM4kHa8sTxb1odSP2FRsplrHg6g15-MtGPhlSLxpilVIZEErbuz3hk-ubxM7aSIK8KIPZqMdM4TrblCsxqL9KeCSXspoGCKXULM0ikAfYP9cv2CmrNb4Wxv6lyHJT1FQ_wsvDjOq54kPoCe26i0834Htl2geydhjgZkY26DVFGyQHznPgVJySf9LZxnmmmIa')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
-<div class="relative z-10 flex justify-between items-center">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-sm text-label-sm text-primary font-medium">Marine &amp; Coastal</span>
-<span class="w-7 h-7 rounded-full bg-surface-container-lowest/20 backdrop-blur-md flex items-center justify-center text-surface text-xs">
-<span class="material-symbols-outlined text-sm">north_east</span>
-</span>
-</div>
-<div class="relative z-10 space-y-2">
-<h4 class="font-headline-sm text-headline-sm text-surface">Expedition Boats &amp; Sea</h4>
-<p class="font-body-sm text-body-sm text-surface/80">Live tidal/swell routing engines, dynamic charter seat allocation, and maritime waiver automation.</p>
-<div class="pt-2 font-label-sm text-label-sm text-secondary-fixed flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> Vessel Yield Engine
-          </div>
-</div>
-</div>
-<!-- Card 3: Heli-Ski & Luxury Lodge -->
-<div class="relative group rounded-2xl overflow-hidden bg-surface-container shadow-md flex flex-col h-[400px] justify-between p-6 transition-all duration-300 hover:-translate-y-1">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Modern architectural timber alpine lodge in deep snow with warm glowing windows at dusk" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2WqfsaKpIcpkxsCOSCQZBZ2Ay_5YQdJ652qgD5KkX6I_M5BGRrm106_u0iT6Mi03zU0zKS1YWjpVxBow5fXP2bAfSRYcGVOM09wU2UlBoLoW1DuzRVSuXxE0rT6vmQ1v9E8ftEd-Qm-C3WDeVotCIiI0zRHoZrDcQs0ZZvPwtPFBdIxUHtItZIULT9LiqIkmsmPw4v2UQmlfsKNjOc09Wus16gW_4JPeeHZEhjMBcK9qpJr-2gtAa')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
-<div class="relative z-10 flex justify-between items-center">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-sm text-label-sm text-primary font-medium">Alpine Lodges</span>
-<span class="w-7 h-7 rounded-full bg-surface-container-lowest/20 backdrop-blur-md flex items-center justify-center text-surface text-xs">
-<span class="material-symbols-outlined text-sm">north_east</span>
-</span>
-</div>
-<div class="relative z-10 space-y-2">
-<h4 class="font-headline-sm text-headline-sm text-surface">Heli-Ski &amp; Resorts</h4>
-<p class="font-body-sm text-body-sm text-surface/80">Autonomous concierge, high-velocity private booking engines, and flight dispatch links.</p>
-<div class="pt-2 font-label-sm text-label-sm text-secondary-fixed flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> Autonomous Concierge
-          </div>
-</div>
-</div>
-<!-- Card 4: Safaris & Eco Expeditions -->
-<div class="relative group rounded-2xl overflow-hidden bg-surface-container shadow-md flex flex-col h-[400px] justify-between p-6 transition-all duration-300 hover:-translate-y-1">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Expedition vehicle traveling across vast golden savanna grassland at late afternoon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqMf4aFcud7eH06qEwbxYYblwtXtKry2f2EUzCHG90dzFVudrW-llPSFB3tdsx7BmPm1hajJ-YIJ0zD9UO6FMZqbdbuo3quKfxnnV9wwjnqNrcgUFoAqrIXz8zYQD9xYig0aUamsrVCHX6jkZzROhWqrPRW_mFAAg98vCMF_cht1pQtw1GgUZRke362R1x3k-6OFbwdTrd1j1zV9ZaiKUwtwZRSaa-ux5cj9DLJHvkZH0P_ei_yeI9')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
-<div class="relative z-10 flex justify-between items-center">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-sm text-label-sm text-primary font-medium">Safaris &amp; DMCs</span>
-<span class="w-7 h-7 rounded-full bg-surface-container-lowest/20 backdrop-blur-md flex items-center justify-center text-surface text-xs">
-<span class="material-symbols-outlined text-sm">north_east</span>
-</span>
-</div>
-<div class="relative z-10 space-y-2">
-<h4 class="font-headline-sm text-headline-sm text-surface">Safaris &amp; Remote Overlands</h4>
-<p class="font-body-sm text-body-sm text-surface/80">Automated multi-vendor itinerary assembly, cross-lodge payment splits, and park fee automation.</p>
-<div class="pt-2 font-label-sm text-label-sm text-secondary-fixed flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> Multi-Supplier Settlement
-          </div>
-</div>
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm">
+<img alt="A team around a boardroom table with open laptops watching a presentation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&amp;q=75&amp;auto=format&amp;fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-transparent"></div>
+<h3 class="absolute bottom-5 left-5 right-5 font-title-lg text-title-lg text-surface font-semibold">Agencies (white-label)</h3>
 </div>
 </div>
 </div>
 </section>
 
-<!-- SECTION 6: QUANTIFIABLE OPERATOR EVIDENCE & GROWTH DASHBOARD (Bento Layout) -->
-<section class="w-full py-space-4xl px-6 lg:px-12 bg-surface" id="evidence">
+<!-- ========== 8. TEAM ========== -->
+<section class="w-full py-20 lg:py-space-5xl px-6 lg:px-12 bg-surface-container-low" id="team">
 <div class="max-w-7xl mx-auto space-y-space-2xl">
-<div class="max-w-2xl space-y-3">
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold tracking-wider">03 / Operator Field Evidence</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-        Engineered systems. Quantifiable autonomy.
-      </h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-        Here is what happens when operators replace 20% OTA tolls and chaotic WhatsApp threads with sovereign Northbound automation.
-      </p>
+<div class="max-w-2xl space-y-4">
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface tracking-tight">Team</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">12+ years combined across web platforms, AI systems and security.</p>
 </div>
-<!-- Bento Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-<!-- DUMMY: this whole testimonial — quote, name, firm, portrait — is invented. Replace with a real client or delete the card before launch. -->
-<div class="lg:col-span-5 p-8 rounded-2xl bg-surface-container-low border border-surface-container shadow-sm flex flex-col justify-between space-y-6">
-<div class="space-y-4">
-<div class="flex items-center gap-1 text-[#16a34a]">
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="font-body-lg text-body-lg text-on-surface italic font-normal leading-relaxed">
-            “Northbound didn't pitch us an AI daydream. They spent a week analyzing our guide rosters and realized we were giving away $70k each season to Viator while drowning our field leads in WhatsApp. The booking engine and dispatch system they built paid for itself before our July departures.”
-          </p>
-</div>
-<div class="flex items-center gap-4 pt-4 border-t border-surface-container">
-<div class="w-12 h-12 rounded-full bg-surface-dim overflow-hidden shrink-0">
-<img alt="Portrait of the founder of Arctic Ridge Heli-Expeditions in alpine attire" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXcopq5wQKNqrLBJCSQDrxiCviJITpP6Yhq6TpqlAH7I_h11hQFLNB4eyLRtzmRhF5rR5aGuoxjGo6n3ZtvHI-LRHk6tzoq_FWk_ckBuxSOSk0g7mAj2hBhADAru3QjEyg2MI0YNFgtO2aVMr-2f9tb-q29t6-MYmPMXBitPTMmNvwP-6pNPfUg_dO6ycsuot5f64p83l8YsP60meTs_X9Tb6Amf4orgDFC4fF3sR0cML9BfKH4OdX"/>
-</div>
-<div>
-<h5 class="font-title-md text-title-md text-on-surface font-semibold">Torvald Eide</h5>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Founder • Arctic Ridge Heli-Expeditions, Tromsø</span>
+<!-- Portraits are in assets/team/ and wired up. Two caveats worth fixing:
+       1. shlok.jpeg still carries the LinkedIn "#OPENTOWORK" ribbon. On an
+          agency site that reads as "our team is job hunting" — recrop or
+          replace it before this page is public.
+       2. All three are LinkedIn headshots: different backgrounds (a street, a
+          park, an indoor event), different lighting, different distances, and
+          Sahil is in sunglasses. The grayscale class below is doing a lot of
+          work to make them look like one set. When there's time, reshoot:
+            · Same location, same lighting, same day. A plain wall in daylight is enough.
+            · Same crop and distance for all three — chest-up, centred, headroom.
+            · Neutral or matching background; clothing in the same register.
+            · Neutral expression, no sunglasses, no crossed arms.
+       Sources are square; swapnil is 400px, the other two only 200px, so they
+       will soften if ever shown larger than the current 96-112px. -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10">
+<div class="flex items-start gap-4">
+<img alt="Swapnil Shinde" class="w-24 sm:w-28 shrink-0 aspect-square object-cover rounded-xl grayscale" loading="lazy" src="assets/team/swapnil.jpeg"/>
+<div class="space-y-1 min-w-0">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Swapnil Shinde</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block">Founder, Engineering</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-2">5+ years building web platforms end to end, plus 2 years running client work independently.</p>
 </div>
 </div>
-</div>
-<!-- DUMMY: metric tiles 1–3 are illustrative targets, not measured results -->
-<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-<!-- Metric Tile 1: Discovery & Revenue -->
-<div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col justify-between space-y-4">
-<div class="space-y-1">
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Discovery &amp; Retention</span>
-<div class="font-display-xl text-4xl sm:text-display-xl font-bold text-on-surface tracking-tight">+38%</div>
-<h4 class="font-title-md text-title-md text-on-surface font-semibold">Direct Booking Ingestion</h4>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Direct travelers ingested via generative AI discovery channels (ChatGPT &amp; Perplexity).</p>
-<div class="w-full h-2 rounded-full bg-surface-variant overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 78%;"></div>
+<div class="flex items-start gap-4">
+<img alt="Sahil Wasnik" class="w-24 sm:w-28 shrink-0 aspect-square object-cover rounded-xl grayscale" loading="lazy" src="assets/team/sahil.jpeg"/>
+<div class="space-y-1 min-w-0">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Sahil Wasnik</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block">AI &amp; Security</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-2">4+ years across AI systems and cybersecurity — builds the parts that have to be right.</p>
 </div>
 </div>
-<!-- Metric Tile 2: Operational Recovery -->
-<div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col justify-between space-y-4">
-<div class="space-y-1">
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Operational Recovery</span>
-<div class="font-display-xl text-4xl sm:text-display-xl font-bold text-on-surface tracking-tight">14h</div>
-<h4 class="font-title-md text-title-md text-on-surface font-semibold">Saved Per Guide / Week</h4>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Manual permit reconciliations, gear waivers, and uncoordinated group calls eliminated.</p>
-<div class="w-full h-2 rounded-full bg-surface-variant overflow-hidden">
-<div class="h-full bg-[#16a34a] rounded-full" style="width: 86%;"></div>
-</div>
-</div>
-<!-- Metric Tile 3: Dynamic Yield -->
-<div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col justify-between space-y-4">
-<div class="space-y-1">
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Dynamic Yield</span>
-<div class="font-display-xl text-4xl sm:text-display-xl font-bold text-on-surface tracking-tight">+18.4%</div>
-<h4 class="font-title-md text-title-md text-on-surface font-semibold">High-Season Seat Yield</h4>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time algorithms automatically raised prices for peak expedition weather windows.</p>
-<div class="w-full h-2 rounded-full bg-surface-variant overflow-hidden">
-<div class="h-full bg-primary rounded-full" style="width: 64%;"></div>
-</div>
-</div>
-<!-- Metric Tile 4: Engineering Standard -->
-<div class="p-6 rounded-2xl bg-primary-container text-on-primary shadow-sm flex flex-col justify-between space-y-4">
-<div class="space-y-1">
-<span class="font-label-sm text-label-sm text-secondary-container uppercase font-semibold">Engineering Standard</span>
-<div class="font-display-xl text-4xl sm:text-display-xl font-bold text-on-primary tracking-tight">0%</div>
-<h4 class="font-title-md text-title-md text-on-primary font-semibold">Vendor Lock-In</h4>
-</div>
-<p class="font-body-sm text-body-sm text-on-primary/80">You own 100% of your source code, database instances, and custom AI pipeline weights.</p>
-<div class="flex items-center gap-2 text-secondary-container font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-sm">verified_user</span>
-<span>Fully Audited IP Transfer</span>
-</div>
+<div class="flex items-start gap-4">
+<img alt="Shlok Jagtap" class="w-24 sm:w-28 shrink-0 aspect-square object-cover rounded-xl grayscale" loading="lazy" src="assets/team/shlok.jpeg"/>
+<div class="space-y-1 min-w-0">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Shlok Jagtap</h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block">Solutions &amp; Growth</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-2">3 years shipping web solutions and working out where a business actually loses money.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- SECTION 7: DELIVERY FRAMEWORK ROADMAP (01 to 04 connected progression) -->
-<section class="w-full py-space-4xl px-6 lg:px-12 bg-surface-container-lowest border-y border-surface-container" id="audit-section">
-<div class="max-w-7xl mx-auto space-y-space-3xl">
-<div class="max-w-3xl space-y-3">
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold tracking-wider">04 / Delivery Framework</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-        How we deliver growth: Low-risk diagnostic first.
-      </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-        We do not sell speculative software rebuilds. Every Northbound partnership begins with an operational audit pinpointing exact margin leaks and direct growth avenues.
-      </p>
-</div>
-<!-- 4-Step Visual Roadmap -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-<!-- Step 1 -->
-<div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container shadow-sm flex flex-col justify-between h-full relative">
-<div>
-<div class="flex items-center justify-between mb-5">
-<span class="w-10 h-10 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">01</span>
-<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold bg-[#bbf7d0]/40 px-2 py-0.5 rounded">Entry Point</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold mb-2">Operational &amp; AEO Audit</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-6">
-            10-day evaluation mapping customer booking paths, OTA drag, guide coordination chat logs, and AI search visibility.
-          </p>
-</div>
-<div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container">
-<span class="font-label-sm text-label-sm text-outline block mb-1">AUDIT DELIVERABLE</span>
-<span class="font-body-sm text-body-sm font-medium text-on-surface">Comprehensive Yield Blueprint + ROI Forecast</span>
-</div>
-</div>
-<!-- Step 2 -->
-<div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container shadow-sm flex flex-col justify-between h-full relative">
-<div>
-<div class="flex items-center justify-between mb-5">
-<span class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center font-bold">02</span>
-<span class="font-label-sm text-label-sm text-outline uppercase">Architecture</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold mb-2">System Blueprint Design</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-6">
-            Translating diagnostic discoveries into exact technical specifications: dispatch webhooks, yield algorithms, and direct channels.
-          </p>
-</div>
-<div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container">
-<span class="font-label-sm text-label-sm text-outline block mb-1">SPEC DELIVERABLE</span>
-<span class="font-body-sm text-body-sm font-medium text-on-surface">Data Schema, Custom APIs, &amp; Guide Flowcharts</span>
-</div>
-</div>
-<!-- Step 3 -->
-<div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container shadow-sm flex flex-col justify-between h-full relative">
-<div>
-<div class="flex items-center justify-between mb-5">
-<span class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center font-bold">03</span>
-<span class="font-label-sm text-label-sm text-outline uppercase">Build &amp; Deploy</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold mb-2">Bespoke Engineering</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-6">
-            Production engineering of your internal tools, custom booking engine, guide apps, and automated pipelines. Zero bloat.
-          </p>
-</div>
-<div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container">
-<span class="font-label-sm text-label-sm text-outline block mb-1">DEPLOY DELIVERABLE</span>
-<span class="font-body-sm text-body-sm font-medium text-on-surface">Hardened Systems, Field Guide Training &amp; Rollout</span>
-</div>
-</div>
-<!-- Step 4 -->
-<div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container shadow-sm flex flex-col justify-between h-full relative">
-<div>
-<div class="flex items-center justify-between mb-5">
-<span class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center font-bold">04</span>
-<span class="font-label-sm text-label-sm text-outline uppercase">Sustained Yield</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold mb-2">Continuous Retainer</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-6">
-            Ongoing algorithm fine-tuning, search engine indexing adjustments, seasonal pricing calibration, and 24/7 reliability oversight.
-          </p>
-</div>
-<div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container">
-<span class="font-label-sm text-label-sm text-outline block mb-1">ONGOING SLA</span>
-<span class="font-body-sm text-body-sm font-medium text-on-surface">Weekly Metric Reviews &amp; Operational Support</span>
-</div>
-</div>
+<!-- ========== 9. CTA ========== -->
+<section class="w-full py-20 lg:py-space-5xl px-6 lg:px-12 bg-primary" id="contact">
+<div class="max-w-3xl mx-auto text-center space-y-6">
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-surface tracking-tight text-balance">Find out what's costing you customers.</h2>
+<p class="font-body-lg text-body-lg text-surface/70 max-w-lg mx-auto">A free audit, no commitment. You get the findings either way.</p>
+<div class="pt-2">
+<!-- TODO: booking URL — point href at the Calendly (or equivalent) link. -->
+<a class="inline-flex items-center gap-2 bg-surface-container-lowest text-primary hover:bg-surface-container-lowest/90 px-7 py-3.5 rounded-full font-label-md text-label-md font-semibold transition-colors shadow-lg" href="#" rel="noopener" target="_blank">
+<span>Book a free audit</span><span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
 </div>
 </div>
 </section>
-
-<!-- SECTION 8: BOTTOM CTA INTAKE MODULE -->
-<section class="w-full py-space-4xl px-6 lg:px-12 bg-surface">
-<div class="max-w-7xl mx-auto rounded-2xl bg-primary-container text-on-primary overflow-hidden shadow-2xl relative">
-<div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-secondary/20 blur-3xl pointer-events-none"></div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-12 lg:p-16 relative z-10">
-<div class="lg:col-span-7 space-y-6">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container-highest/20 font-label-sm text-label-sm text-secondary-container">
-<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-ping"></span>
-<span>Now Scheduling Q3 Field Audits</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-primary tracking-tight">
-          Eliminate operational drag. Keep your commissions.
-        </h2>
-<p class="font-body-lg text-body-lg text-on-primary/80 max-w-xl font-normal leading-relaxed">
-          The low-cost Northbound Operational Audit maps every point where your travel business is losing money to manual work and OTAs. We deliver the engineering blueprint before you commit to a build.
-        </p>
-<div class="flex flex-wrap items-center gap-6 pt-2 font-label-sm text-label-sm text-on-primary/70">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm text-secondary-fixed">check_circle</span>
-<span>10-Day Deep Analysis</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm text-secondary-fixed">check_circle</span>
-<span>Direct AEO Visibility Score</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm text-secondary-fixed">check_circle</span>
-<span>Fixed-Fee Diagnostic</span>
-</div>
-</div>
-</div>
-<!-- Audit Booking / Intake Form -->
-<!-- TODO: this form does not submit anywhere — wire it to a real endpoint (Formspree, a serverless function, your CRM) before launch. -->
-<div class="lg:col-span-5 bg-surface-container-lowest text-on-surface p-8 rounded-xl shadow-lg">
-<h3 class="font-title-lg text-title-lg text-on-surface font-semibold mb-1">Initiate Operational Audit</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Receive our technical evaluation protocol and availability schedule within 24 hours.</p>
-<form class="space-y-4" id="audit-lead-form" onsubmit="event.preventDefault(); submitAuditLead();">
-<div>
-<label class="font-label-sm text-label-sm text-outline uppercase block mb-1" for="lead-company">Company / Outfit Name</label>
-<input class="w-full px-4 py-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder-outline focus:outline-none focus:bg-surface-container transition-colors" id="lead-company" name="company" placeholder="e.g. Nordic Ridge Expeditions" required="" type="text"/>
-</div>
-<div>
-<label class="font-label-sm text-label-sm text-outline uppercase block mb-1" for="lead-email">Direct Field Lead Email</label>
-<input class="w-full px-4 py-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder-outline focus:outline-none focus:bg-surface-container transition-colors" id="lead-email" name="email" placeholder="operator@outfit.com" required="" type="email"/>
-</div>
-<div>
-<label class="font-label-sm text-label-sm text-outline uppercase block mb-1" for="lead-volume">Annual Field Volume</label>
-<select class="w-full px-4 py-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container transition-colors cursor-pointer" id="lead-volume" name="volume">
-<option>Under 1,000 Expedition Guests / Year</option>
-<option>1,000 – 5,000 Guests / Year</option>
-<option>5,000 – 25,000 Guests / Year</option>
-<option>25,000+ Guests / High-Scale Activity Hub</option>
-</select>
-</div>
-<button class="w-full py-3.5 px-6 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all duration-200 flex items-center justify-center gap-2 shadow-md" type="submit">
-<span>Request Scoped Audit Proposal</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
-<div class="hidden text-center text-secondary font-label-sm text-label-sm pt-2" id="lead-submitted-msg" role="status">
-            ✓ Audit dispatch queued. Our engineering lead will respond today.
-          </div>
-</form>
-</div>
-</div>
-</div>
-</section>
-
-<script>
-  /* Hero video. Held back until we know it is wanted: the poster (hero.webp)
-     carries the hero on its own if any of these say no. */
-  (function () {
-    var v = document.getElementById('hero-video');
-    if (!v) return;
-    var conn = navigator.connection || {};
-    var thrifty = conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || thrifty) return;
-
-    var src = document.createElement('source');
-    src.src = window.matchMedia('(max-width: 768px)').matches ? 'assets/hero-mobile.mp4' : 'assets/hero.mp4';
-    src.type = 'video/mp4';
-    v.appendChild(src);
-    v.preload = 'auto';
-    v.load();
-    /* If the browser refuses muted autoplay, the poster simply stays. */
-    var p = v.play();
-    if (p && p.catch) p.catch(function () {});
-  })();
-
-  function submitAuditLead() {
-    const form = document.getElementById('audit-lead-form');
-    const msg = document.getElementById('lead-submitted-msg');
-    msg.classList.remove('hidden');
-    setTimeout(() => {
-      form.reset();
-    }, 1500);
-  }
-</script>
 
 </div></main>
 
-<footer class="w-full bg-surface-container-low"><div class="max-w-7xl mx-auto px-6 lg:px-12 pt-space-4xl pb-space-2xl"><div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop mb-space-3xl"><div class="lg:col-span-5 flex flex-col justify-between space-y-space-xl"><div class="space-y-space-md"><div class="flex items-center gap-3"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">Northbound</span></div><p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Engineered intelligence for remote expeditions, luxury lodge operations, and high-consequence adventure travel outfits worldwide.</p></div>
-<!-- DUMMY: status line and coordinates are decorative placeholders -->
-<div class="space-y-space-xs"><span class="font-label-sm text-label-sm uppercase text-outline">System Status</span><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface">All Systems Operational • Lat 64.1466° N</span></div></div></div><div class="lg:col-span-4 space-y-space-md"><div class="space-y-space-xs"><span class="font-label-sm text-label-sm uppercase text-outline">Inquiries &amp; Dispatches</span><h4 class="font-title-lg text-title-lg text-on-surface">Request Briefing &amp; Field Updates</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Receive our quarterly technical monographs on autonomy, dispatch intelligence, and remote operations.</p></div>
-<!-- TODO: wire this newsletter form to a real list before launch -->
-<form class="flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault();"><label class="sr-only" for="newsletter-email">Email address</label><input class="flex-1 px-4 py-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder-outline focus:outline-none" id="newsletter-email" name="email" placeholder="field.lead@outfit.com" type="email"/><button class="px-5 py-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-surface-container-highest hover:text-on-surface transition-colors" type="submit">Subscribe</button></form></div><div class="lg:col-span-3 grid grid-cols-2 gap-gutter-tablet"><div class="space-y-space-sm"><span class="font-label-sm text-label-sm uppercase text-outline">Platform</span><ul class="space-y-space-xs"><li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="services" href="#services">Services</a></li><li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="solutions" href="#solutions">Solutions</a></li><li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="audit-process" href="#audit-section">Audit Process</a></li><li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="case-studies" href="#evidence">Case Studies</a></li></ul></div><div class="space-y-space-sm"><span class="font-label-sm text-label-sm uppercase text-outline">Firm</span><ul class="space-y-space-xs"><li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="about" href="#services">About Northbound</a></li><li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="book-an-audit" href="#audit-lead-form">Book Audit</a></li>
-<!-- TODO: these two pages do not exist yet -->
-<li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="privacy-notice" href="#">Privacy Notice</a></li><li class="" role="none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors block" data-path="security-protocols" href="#">Security</a></li></ul></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-4"><p class="font-label-sm text-label-sm text-on-surface-variant">© <span id="yr">2026</span> Northbound AI &amp; Automation Agency. All rights reserved.</p>
-<!-- DUMMY: office cities and version tag are placeholders -->
-<div class="flex items-center gap-6"><span class="font-label-sm text-label-sm text-outline">Stockholm • Tromsø • Vancouver</span><span class="font-label-sm text-label-sm text-outline">Architectural Monograph v2.4</span></div></div></div></footer>
+<!-- ========== 10. FOOTER ========== -->
+<footer class="w-full bg-surface-container-low border-t border-surface-container">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-2xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+<span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">Northbound</span>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+<!-- TODO: contact email -->
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="mailto:hello@northbound.example">hello@northbound.example</a>
+<!-- TODO: social links -->
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">LinkedIn</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Instagram</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© <span id="yr">2026</span> Northbound</p>
+</div>
+</footer>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 
